@@ -1,14 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Teste de Software - TBL 2: Fase 3</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-    <h1>Hello Word!</h1>
+{% block content %}
+
+    <h1>Cadastro de Funções de Transição</h1>
+    <form method="POST">{% csrf_token %}
+        <table>
+            <tr>
+                <th>Nome da Função</th>
+                <td><input type="text" name="nome_func"></td>
+            </tr>
+            <tr>
+                <th>Tipo da Função</th> <!-- mudar para select -->
+                <td><input type="text" name="tipo_func"></td>
+            </tr>
+            <tr>
+                <th>Parâmetro 1</th>
+                <td><input type="text" name="parm1"></td>
+            </tr>
+            <tr>
+                <th>Parâmetro 2</th>
+                <td><input type="text" name="parm2"></td>
+            </tr>
+            <tr>
+                <th>Nome do Contador</th>
+                <td><input type="text" name="nome_cont"></td>
+            </tr>
+        </table>
+            
+        <button type="submit">Salvar</button>
+    </form>
     
-</body>
-</html>
+{% endblock %}
