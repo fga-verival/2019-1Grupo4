@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.utils import timezone
 from django.http import HttpResponseRedirect
+
+import django_tables2 as tables
+
 from .models import FuncTran
 from .forms import FuncTranForm
 
@@ -35,3 +38,13 @@ def cadastrar_funcoes(request):
     return render(request,
                   'index.html',
                   {'form': form, 'submitted': submitted})
+
+class SimpleTable(tables.Table):
+    class Meta:
+        model = FuncTran
+
+def listar_funcoes(request):
+
+    queryset = FuncTran.objects.all()
+    table = SimpleTable(queryset)
+    return render(request, 'list.html', {'table': table})
