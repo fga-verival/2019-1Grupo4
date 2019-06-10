@@ -6,7 +6,7 @@ class FuncTranForm(forms.ModelForm):
         error_messages={
             'required': 'O nome da funcionalidade é obrigatório'}
     )
-    tipo_funcoes = forms.CharField(
+    tipo_func = forms.CharField(
         error_messages={
             'required': 'O tipo da funcionalidade é obrigatório'},
         widget=forms.Select(choices=FuncTran.TIPO_FUNC)
@@ -29,4 +29,4 @@ class FuncTranForm(forms.ModelForm):
     required_css_class = 'required'
     class Meta():
         model = FuncTran
-        fields = ('nome_func', 'tipo_funcoes', 'param1', 'param2', 'nome_cont')
+        fields = ('nome_func', 'tipo_func', 'param1', 'param2', 'nome_cont')
