@@ -45,6 +45,12 @@ class SimpleTable(tables.Table):
 
 def listar_funcoes(request):
 
-    queryset = FuncTran.objects.all().order_by('tipo_func')
-    table = SimpleTable(queryset)
-    return render(request, 'list.html', {'table': table})
+    # queryset = FuncTran.objects.all().order_by('tipo_func')
+    querysetEE = FuncTran.objects.all().filter(tipo_func='EE')
+    querysetSE = FuncTran.objects.all().filter(tipo_func='SE')
+    querysetCE = FuncTran.objects.all().filter(tipo_func='CE')
+    tableEE = SimpleTable(querysetEE)
+    tableSE = SimpleTable(querysetSE)
+    tableCE = SimpleTable(querysetCE)
+
+    return render(request, 'list.html', {'tableEE': tableEE, 'tableSE': tableSE, 'tableCE': tableCE})

@@ -3,5 +3,10 @@
 
     <h1>Lista de Funções de Transição</h1>
     {% load django_tables2 %}
-    {% render_table table %}
+    <h2> ENTRADAS EXTERNAS</h2>
+    {% render_table tableEE %}
+    <h2> SAÍDAS EXTERNAS </h2>
+    {% render_table tableSE %}
+    <h2> CONSULTAS EXTERNAS </h2>
+    {% render_table tableCE %}
 {% endblock %}
