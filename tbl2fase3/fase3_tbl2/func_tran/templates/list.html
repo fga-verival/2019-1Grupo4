@@ -5,8 +5,11 @@
     {% load django_tables2 %}
     <h2> ENTRADAS EXTERNAS</h2>
     {% render_table tableEE %}
+    <h3> Total de Pontos de Função EE: {{ totalEE }}</h3>
     <h2> SAÍDAS EXTERNAS </h2>
     {% render_table tableSE %}
+    <h3> Total de Pontos de Função SE: {{ totalSE }}</h3>
     <h2> CONSULTAS EXTERNAS </h2>
     {% render_table tableCE %}
+    <h3> Total de Pontos de Função CE {{ totalCE }}</h3>
 {% endblock %}
