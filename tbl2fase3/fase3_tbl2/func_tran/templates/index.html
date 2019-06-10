@@ -2,31 +2,39 @@
 {% block content %}
 
     <h1>Cadastro de Funções de Transição</h1>
-    <form method="POST">{% csrf_token %}
+    {% if submitted %}
+      <p class="success">
+         Função adicionada com sucesso.
+      </p>
+    {% else %}
+      <form action="" method="POST">{% csrf_token %}
         <table>
-            <tr>
-                <th>Nome da Função</th>
-                <td><input type="text" name="nome_func"></td>
-            </tr>
-            <tr>
-                <th>Tipo da Função</th> <!-- mudar para select -->
-                <td><input type="text" name="tipo_func"></td>
-            </tr>
-            <tr>
-                <th>Parâmetro 1</th>
-                <td><input type="text" name="parm1"></td>
-            </tr>
-            <tr>
-                <th>Parâmetro 2</th>
-                <td><input type="text" name="parm2"></td>
-            </tr>
-            <tr>
-                <th>Nome do Contador</th>
-                <td><input type="text" name="nome_cont"></td>
-            </tr>
+          {{ form.as_table }}
         </table>
-            
-        <button type="submit">Salvar</button>
-    </form>
-    
+          <!-- <table>
+              <tr>
+                  <th>Nome da Função</th>
+                  <td><input type="text" name="nome_func"></td>
+              </tr>
+              <tr>
+                  <th>Tipo da Função</th>  mudar para select
+                  <td><input type="text" name="tipo_func"></td>
+              </tr>
+              <tr>
+                  <th>Parâmetro 1</th>
+                  <td><input type="text" name="parm1"></td>
+              </tr>
+              <tr>
+                  <th>Parâmetro 2</th>
+                  <td><input type="text" name="parm2"></td>
+              </tr>
+              <tr>
+                  <th>Nome do Contador</th>
+                  <td><input type="text" name="nome_cont"></td>
+              </tr>
+          </table> -->
+          <button type="submit">Salvar</button>
+      </form>
+    {% endif %}
+
 {% endblock %}
